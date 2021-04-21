@@ -49,7 +49,7 @@ export class UserController {
                     mongoError(err, res);
                 } else if (userData) {
                     const userParams: IUser = {
-                        id: req.params.id,
+                        _id: req.params.id,
                         firstName: req.body.firstName ? req.body.firstName : userData.firstName,
                         lastName: req.body.lastName ? req.body.lastName : userData.lastName,
                         email: req.body.email ? req.body.email : userData.email,
