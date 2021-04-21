@@ -12,3 +12,4 @@ A simple Express proyect to have a base in futre projects
 - JWT authentication
 - Swagger
 - Dependency Injection
+- Body, query, params validation
