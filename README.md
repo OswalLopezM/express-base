@@ -13,4 +13,3 @@ A simple Express proyect to have a base in futre projects
 - Swagger
 - Dependency Injection
 - Body, query, params validation
-- Docker
