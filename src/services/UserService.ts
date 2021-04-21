@@ -13,7 +13,7 @@ export default class UserService {
     }
 
     public updateUser(user_params: IUser, callback: any) {
-        const query = { _id: user_params.id };
+        const query = { _id: user_params._id };
         users.findOneAndUpdate(query, user_params, callback);
     }
     
