@@ -17,6 +17,14 @@ export function failureResponse(message: string, DATA: any, res: Response) {
     });
 }
 
+export function invalidJWTResponse(message: string, res: Response) {
+    res.status(ResponseStatusCode.success).json({
+        STATUS: 'Invalid JWT',
+        MESSAGE: 'Invalid JWT',
+        message: message
+    });
+}
+
 export function insufficientParameters(res: Response) {
     res.status(ResponseStatusCode.bad_request).json({
         STATUS: 'FAILURE',

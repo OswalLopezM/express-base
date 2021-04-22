@@ -8,8 +8,12 @@ export default class UserService {
         _session.save(callback);
     }
 
-    public filterUser(query: any, callback: any) {
-        users.findOne(query, callback);
+    public async getOne(query: any) {
+        return await users.findOne(query).exec();
+    }
+
+    public async getAll(query: any) {
+        return users.find(query).exec();
     }
 
     public updateUser(user_params: IUser, callback: any) {

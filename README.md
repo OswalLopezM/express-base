@@ -9,7 +9,8 @@ A simple Express proyect to have a base in futre projects
 
 ## TO-DO 
 
-- JWT authentication
 - Swagger
 - Dependency Injection
 - Body, query, params validation
+- Logger
+- Test
