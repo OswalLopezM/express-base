@@ -6,6 +6,10 @@ A simple Express proyect to have a base in futre projects
 - Enviroment Variables
 - Express
 - Mongoose Configuration
+- CI
+- Docker
+- JWT authentication
+
 
 ## TO-DO 
 
@@ -14,3 +18,4 @@ A simple Express proyect to have a base in futre projects
 - Body, query, params validation
 - Logger
 - Test
+- CD
