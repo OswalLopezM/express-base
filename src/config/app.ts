@@ -1,8 +1,7 @@
 import express from "express";
 import * as bodyParser from "body-parser";
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import { TestRoutes } from "../api-routes/TestRoutes";
+import mongoose, { mongo } from 'mongoose';
 import { UserRoutes } from "../api-routes/UserRoutes";
 import { CommonRoutes } from "../api-routes/CommonRoutes";
 
@@ -10,7 +9,6 @@ import { CommonRoutes } from "../api-routes/CommonRoutes";
 class App {
 
    public app: express.Application;
-   // private testRoutes: TestRoutes = new TestRoutes();
    private userRoutes: UserRoutes = new UserRoutes();
    private commonRoutes: CommonRoutes = new CommonRoutes();
 
@@ -18,7 +16,6 @@ class App {
       this.app = express();
       this.config();
       this.mongoSetup();
-      // this.testRoutes.route(this.app);
       this.userRoutes.route(this.app);
       this.commonRoutes.route(this.app);
       
@@ -35,7 +32,8 @@ class App {
 
 
    private mongoSetup(): void {
-      mongoose.connect(process.env.MONGO_URL, { 
+      let mongoURL = process.env.NODE_ENV === 'test' ? process.env.MONGO_URL_TEST : process.env.MONGO_URL;
+      mongoose.connect(mongoURL, { 
          useNewUrlParser: true, 
          useUnifiedTopology: true, 
          useCreateIndex: true, 

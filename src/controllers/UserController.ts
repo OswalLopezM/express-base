@@ -36,7 +36,7 @@ export class UserController {
             };
             this.userService.createUser(userParams, (err: any, userData: IUser) => {
                 if (err) {
-                    mongoError(err, res);
+                    mongoError(err.message, res);
                 } else {
                     successResponse('create user successfull', userData, res);
                 }

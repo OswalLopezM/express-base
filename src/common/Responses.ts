@@ -1,42 +1,41 @@
 import { Response } from 'express';
 import { ResponseStatusCode } from './ResponseStatusCode';
 
-export function successResponse(message: string, DATA: any, res: Response) {
+export function successResponse(message: string, data: any, res: Response) {
     res.status(ResponseStatusCode.success).json({
-        STATUS: 'SUCCESS',
-        MESSAGE: message,
-        DATA
+        status: 'SUCCESS',
+        message: message,
+        data
     });
 }
 
-export function failureResponse(message: string, DATA: any, res: Response) {
+export function failureResponse(message: string, data: any, res: Response) {
     res.status(ResponseStatusCode.success).json({
-        STATUS: 'FAILURE',
-        MESSAGE: message,
-        DATA
+        status: 'FAILURE',
+        message: message,
+        data
     });
 }
 
 export function invalidJWTResponse(message: string, res: Response) {
     res.status(ResponseStatusCode.success).json({
-        STATUS: 'Invalid JWT',
-        MESSAGE: 'Invalid JWT',
+        status: 'Invalid JWT',
         message: message
     });
 }
 
 export function insufficientParameters(res: Response) {
     res.status(ResponseStatusCode.bad_request).json({
-        STATUS: 'FAILURE',
-        MESSAGE: 'Insufficient parameters',
-        DATA: {}
+        status: 'FAILURE',
+        message: 'Insufficient parameters',
+        data: {}
     });
 }
 
 export function mongoError(err: any, res: Response) {
     res.status(ResponseStatusCode.internal_server_error).json({
-        STATUS: 'FAILURE',
-        MESSAGE: 'MongoDB error',
-        DATA: err
+        status: 'FAILURE',
+        message: 'MongoDB error',
+        data: err
     });
 }
