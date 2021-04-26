@@ -15,7 +15,10 @@ class App {
    constructor() {
       this.app = express();
       this.config();
-      this.mongoSetup();
+      if(process.env.NODE_ENV === 'development' || 
+         process.env.NODE_ENV === 'production'){
+         this.mongoSetup();
+      }
       this.userRoutes.route(this.app);
       this.commonRoutes.route(this.app);
       
